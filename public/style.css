@@ -8,7 +8,8 @@ body {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
   z-index: -10;
 }
 
@@ -26,11 +27,35 @@ body {
 
 #svg {
   position: fixed;
-  top: 25%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
   z-index: 10;
+  -webkit-animation: rotation 15s infinite linear;
+          animation: rotation 15s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate3d(0, 0, 0, 0deg);
+            transform: rotate3d(0, 0, 0, 0deg);
+  }
+  to {
+    -webkit-transform: rotate3d(0, 1, 0.05, 359deg);
+            transform: rotate3d(0, 1, 0.05, 359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate3d(0, 0, 0, 0deg);
+            transform: rotate3d(0, 0, 0, 0deg);
+  }
+  to {
+    -webkit-transform: rotate3d(0, 1, 0.05, 359deg);
+            transform: rotate3d(0, 1, 0.05, 359deg);
+  }
 }
 
 #test {
@@ -41,3 +66,4 @@ body {
   width: 400px;
   height: 400px;
 }
+/*# sourceMappingURL=style.css.map */
