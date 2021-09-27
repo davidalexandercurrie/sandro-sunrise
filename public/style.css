@@ -57,13 +57,4 @@ body {
             transform: rotate3d(0, 1, 0.05, 359deg);
   }
 }
-
-#test {
-  position: fixed;
-  top: 100;
-  left: 100;
-  background: pink;
-  width: 400px;
-  height: 400px;
-}
 /*# sourceMappingURL=style.css.map */

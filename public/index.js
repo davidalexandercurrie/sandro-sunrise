@@ -42,3 +42,10 @@ window.addEventListener('click', () => {
   document.getElementById('iframe-container').style.display = 'block';
   // start audio
 });
+
+// function reportWindowSize() {
+//   document.getElementById('svg').style.height =
+//     ((window.innerWidth / 9) * 35) / 100 + 'px';
+// }
+
+// window.onresize = reportWindowSize;
