@@ -38,8 +38,7 @@ function handleData(data) {
   document.getElementById('iframe-container').style.display = 'none';
 }
 
-setTimeout(() => {
-  window.addEventListener('click', () => {
-    document.getElementById('iframe-container').style.display = 'block';
-  });
-}, 5000);
+window.addEventListener('click', () => {
+  document.getElementById('iframe-container').style.display = 'block';
+  // start audio
+});
