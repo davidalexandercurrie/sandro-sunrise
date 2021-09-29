@@ -43,9 +43,9 @@ window.addEventListener('click', () => {
   // start audio
 });
 
-// function reportWindowSize() {
-//   document.getElementById('svg').style.height =
-//     ((window.innerWidth / 9) * 35) / 100 + 'px';
-// }
+function reportWindowSize() {
+  document.getElementById('svg').style.top =
+    ((window.innerWidth / 16) * 9 * 35) / 100 + 'px';
+}
 
-// window.onresize = reportWindowSize;
+window.onresize = reportWindowSize;
