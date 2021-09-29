@@ -35,7 +35,7 @@ function handleData(data) {
   //choose random element
 
   document.getElementById('iframe').src = url + '?mute=1&autoplay=1';
-  document.getElementById('iframe-container').style.display = 'none';
+  // document.getElementById('iframe-container').style.display = 'none';
 }
 
 window.addEventListener('click', () => {
