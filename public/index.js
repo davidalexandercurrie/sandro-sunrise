@@ -1,3 +1,26 @@
+let track = 0;
+
+let sounds = [];
+
+function playNext() {
+  track = (track + 1) % 3;
+  sounds[track].play();
+  document.getElementById('svg').src = `Images/${track + 1}.svg`;
+}
+
+for (let i = 0; i < 3; i++) {
+  sounds[i] = new Howl({
+    src: [`audio/danze${i + 1}.mp3`],
+    volume: 1,
+    onend: () => playNext(),
+  });
+}
+
+window.onclick = () => {
+  sounds[track].stop();
+  playNext();
+};
+
 fetch('/data')
   .then(response => response.json())
   .then(data => {
@@ -6,13 +29,13 @@ fetch('/data')
   })
   .catch(console.error);
 
-function handleData(data) {
+function handleData({ data }) {
   let currentHour = new Date().getUTCHours();
   console.log(currentHour);
   let closestHours = [];
   let closestDistance = 24;
   //find closest hour
-  data.data.forEach(element => {
+  data.forEach(element => {
     let distance = Math.abs(currentHour - element.sunrise);
     distance = distance > 12 ? 24 - distance : distance;
     if (distance < closestDistance) {
@@ -27,9 +50,7 @@ function handleData(data) {
     }
   });
   //get all elements with same hour
-  let srcs = data.data.filter(element =>
-    closestHours.includes(element.sunrise)
-  );
+  let srcs = data.filter(element => closestHours.includes(element.sunrise));
   let url = srcs[Math.floor(Math.random() * srcs.length)].url;
 
   //choose random element
