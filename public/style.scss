@@ -66,3 +66,20 @@ body {
     background: black;
   }
 }
+
+#fs-button {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  border: 2px solid black;
+  padding: 1em;
+  background: white;
+  display: none;
+  &:hover {
+    border: 3px solid black;
+    padding: calc(1em - 1px);
+  }
+  &:active {
+    background: black;
+  }
+}

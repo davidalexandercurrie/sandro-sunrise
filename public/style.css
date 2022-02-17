@@ -83,4 +83,23 @@ body {
 #play-button:active {
   background: black;
 }
+
+#fs-button {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  border: 2px solid black;
+  padding: 1em;
+  background: white;
+  display: none;
+}
+
+#fs-button:hover {
+  border: 3px solid black;
+  padding: calc(1em - 1px);
+}
+
+#fs-button:active {
+  background: black;
+}
 /*# sourceMappingURL=style.css.map */

@@ -1,8 +1,6 @@
 let track = Math.floor(Math.random() * 7);
 let buttonActive = true;
 
-console.log(track);
-
 let sounds = [];
 
 function playNext() {
@@ -22,6 +20,10 @@ window.onload = () => {
     playNext();
     toggleFullScreen();
   });
+  document.getElementById('fs-button').addEventListener('click', () => {
+    toggleFullScreen();
+    e.target.style.display = 'none';
+  });
 };
 
 (function () {
@@ -32,6 +34,7 @@ window.onload = () => {
     mouseTimer = null;
     document.body.style.cursor = 'none';
     cursorVisible = false;
+    document.getElementById('fs-button').style.display = 'none';
   }
 
   document.onmousemove = function () {
@@ -41,6 +44,9 @@ window.onload = () => {
     if (!cursorVisible) {
       document.body.style.cursor = 'default';
       cursorVisible = true;
+    }
+    if (document.fullscreenElement === null && !buttonActive) {
+      document.getElementById('fs-button').style.display = 'block';
     }
     mouseTimer = window.setTimeout(disappearCursor, 3000);
   };
@@ -113,6 +119,9 @@ function reportWindowSize() {
 window.onresize = reportWindowSize;
 
 function toggleFullScreen() {
+  if (document.fullscreenElement === null) {
+    document.getElementById('fs-button').style.display = 'none';
+  }
   var doc = window.document;
   var docEl = doc.documentElement;
 
