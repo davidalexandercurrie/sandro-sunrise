@@ -20,8 +20,31 @@ window.onload = () => {
     document.getElementById('svg').style.display = 'block';
     buttonActive = false;
     playNext();
+    toggleFullScreen();
   });
 };
+
+(function () {
+  var mouseTimer = null,
+    cursorVisible = true;
+
+  function disappearCursor() {
+    mouseTimer = null;
+    document.body.style.cursor = 'none';
+    cursorVisible = false;
+  }
+
+  document.onmousemove = function () {
+    if (mouseTimer) {
+      window.clearTimeout(mouseTimer);
+    }
+    if (!cursorVisible) {
+      document.body.style.cursor = 'default';
+      cursorVisible = true;
+    }
+    mouseTimer = window.setTimeout(disappearCursor, 3000);
+  };
+})();
 
 for (let i = 0; i < 7; i++) {
   sounds[i] = new Howl({
@@ -88,3 +111,30 @@ function reportWindowSize() {
 }
 
 window.onresize = reportWindowSize;
+
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen =
+    docEl.requestFullscreen ||
+    docEl.mozRequestFullScreen ||
+    docEl.webkitRequestFullScreen ||
+    docEl.msRequestFullscreen;
+  var cancelFullScreen =
+    doc.exitFullscreen ||
+    doc.mozCancelFullScreen ||
+    doc.webkitExitFullscreen ||
+    doc.msExitFullscreen;
+
+  if (
+    !doc.fullscreenElement &&
+    !doc.mozFullScreenElement &&
+    !doc.webkitFullscreenElement &&
+    !doc.msFullscreenElement
+  ) {
+    requestFullScreen.call(docEl);
+  } else {
+    cancelFullScreen.call(doc);
+  }
+}
