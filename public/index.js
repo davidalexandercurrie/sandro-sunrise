@@ -1,19 +1,22 @@
-let track = 0;
+let track = Math.floor(Math.random() * 7);
+console.log(track);
 
 let sounds = [];
 
 function playNext() {
-  track = (track + 1) % 3;
+  track = (track + 1) % 7;
   sounds[track].play();
   document.getElementById('svg').src = `Images/${track + 1}.svg`;
+  console.log(`${track} is playing`);
 }
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 7; i++) {
   sounds[i] = new Howl({
-    src: [`audio/danze${i + 1}.mp3`],
+    src: [`audio/danze-00${i + 1}.mp3`],
     volume: 1,
     onend: () => playNext(),
   });
+  console.log(sounds[i]);
 }
 
 window.onclick = () => {
@@ -70,3 +73,5 @@ function reportWindowSize() {
 }
 
 window.onresize = reportWindowSize;
+
+playNext();
