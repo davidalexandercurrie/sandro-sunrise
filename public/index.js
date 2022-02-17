@@ -1,4 +1,11 @@
 let track = Math.floor(Math.random() * 7);
+window.onload = () => {
+  document.getElementById('svg').src = `Images/${track + 1}.svg`;
+  setTimeout(() => {
+    document.getElementById('iframe').style.display = 'block';
+    document.getElementById('svg').style.display = 'block';
+  }, 3000);
+};
 console.log(track);
 
 let sounds = [];
