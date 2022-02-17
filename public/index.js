@@ -1,11 +1,6 @@
 let track = Math.floor(Math.random() * 7);
-window.onload = () => {
-  document.getElementById('svg').src = `Images/${track + 1}.svg`;
-  setTimeout(() => {
-    document.getElementById('iframe').style.display = 'block';
-    document.getElementById('svg').style.display = 'block';
-  }, 3000);
-};
+let buttonActive = true;
+
 console.log(track);
 
 let sounds = [];
@@ -17,6 +12,17 @@ function playNext() {
   console.log(`${track} is playing`);
 }
 
+window.onload = () => {
+  document.getElementById('play-button').addEventListener('click', e => {
+    e.target.style.display = 'none';
+    document.getElementById('svg').src = `Images/${track + 1}.svg`;
+    document.getElementById('iframe').style.display = 'block';
+    document.getElementById('svg').style.display = 'block';
+    buttonActive = false;
+    playNext();
+  });
+};
+
 for (let i = 0; i < 7; i++) {
   sounds[i] = new Howl({
     src: [`audio/danze-00${i + 1}.mp3`],
@@ -27,8 +33,10 @@ for (let i = 0; i < 7; i++) {
 }
 
 window.onclick = () => {
-  sounds[track].stop();
-  playNext();
+  if (!buttonActive) {
+    sounds[track].stop();
+    playNext();
+  }
 };
 
 fetch('/data')
@@ -80,5 +88,3 @@ function reportWindowSize() {
 }
 
 window.onresize = reportWindowSize;
-
-playNext();

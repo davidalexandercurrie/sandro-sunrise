@@ -48,3 +48,21 @@ body {
     transform: rotate3d(0, 1, 0.05, 359deg);
   }
 }
+
+#play-button {
+  padding: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 2px solid black;
+  position: fixed;
+  width: 2em;
+  height: 1.5em;
+  top: calc(50% - 2em);
+  left: calc(50% - 2em);
+  &:hover {
+    border: 3px solid black;
+    padding: calc(1em - 1px);
+  }
+  &:active {
+    background: black;
+  }
+}
