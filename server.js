@@ -9,6 +9,8 @@ let streams;
 let dataReady;
 let data;
 
+console.log('hi');
+
 app.get('/data', function (req, res) {
   res.end(JSON.stringify({ data: data }));
 });
