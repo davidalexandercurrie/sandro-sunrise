@@ -19,12 +19,18 @@ body {
 
 #iframe {
   position: absolute;
-  top: -20%;
+  /* top: -20%;
   left: -20%;
   bottom: -20%;
   right: -20%;
   width: 140%;
-  height: 140%;
+  height: 140%; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: -10;
   display: none;
@@ -39,28 +45,28 @@ body {
   height: 40%;
   z-index: 10;
   -webkit-animation: rotation 60s infinite linear;
-          animation: rotation 60s infinite linear;
+  animation: rotation 60s infinite linear;
 }
 
 @-webkit-keyframes rotation {
   from {
     -webkit-transform: rotate3d(0, 0, 0, 0deg);
-            transform: rotate3d(0, 0, 0, 0deg);
+    transform: rotate3d(0, 0, 0, 0deg);
   }
   to {
     -webkit-transform: rotate3d(0, 1, 0.05, 359deg);
-            transform: rotate3d(0, 1, 0.05, 359deg);
+    transform: rotate3d(0, 1, 0.05, 359deg);
   }
 }
 
 @keyframes rotation {
   from {
     -webkit-transform: rotate3d(0, 0, 0, 0deg);
-            transform: rotate3d(0, 0, 0, 0deg);
+    transform: rotate3d(0, 0, 0, 0deg);
   }
   to {
     -webkit-transform: rotate3d(0, 1, 0.05, 359deg);
-            transform: rotate3d(0, 1, 0.05, 359deg);
+    transform: rotate3d(0, 1, 0.05, 359deg);
   }
 }
 
