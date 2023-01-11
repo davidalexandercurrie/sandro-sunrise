@@ -39,10 +39,10 @@ body {
 #svg {
   display: none;
   position: fixed;
-  top: 30%;
-  left: 30%;
-  width: 40%;
-  height: 40%;
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
   z-index: 10;
   -webkit-animation: rotation 60s infinite linear;
   animation: rotation 60s infinite linear;
